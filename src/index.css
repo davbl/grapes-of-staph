@@ -34,6 +34,7 @@ h1 {
   font-weight: 700;
   /* line-height: 1.1; */
   margin: 1rem 0rem;
+  text-align: center;
 }
 
 main {
@@ -42,9 +43,15 @@ main {
   flex-grow: 1;
   justify-content: center;
   padding-bottom: 5rem;
-  gap: 3.5rem;
+  gap: 4rem;
   /* align-items: center; */
   /* margin: 1.5rem; */
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Title */
@@ -52,6 +59,7 @@ h2 {
   margin: 0;
   font-size: 2.5rem;
   color: #a1a9b3;
+  text-align: center;
 }
 
 /* RESULT */
@@ -72,21 +80,21 @@ ol {
   color: #006aff;
 }
 .green {
-  color: #3cb200;
+  color: #339900;
 }
 
 /* CONTROLS */
 .controls {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 /* Radio group title */
 legend {
   font-weight: 600;
   font-size: 0.95rem;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 
 /* Radio group */
@@ -98,7 +106,12 @@ fieldset {
   padding: 0;
 }
 
-/* Radio input label */
+/* Radio item */
+label {
+  cursor: pointer;
+}
+
+/* Radio item label */
 span {
   padding-left: 0.25rem;
 }
