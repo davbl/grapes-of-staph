@@ -1,48 +1,84 @@
-const Controls = () => {
-  // HTML
+/* eslint-disable react/prop-types */
+const Controls = ({ onChange }) => {
+  // take assay and radio selection and pass to App.jsx
+  const handleChange = (assay) => (event) => {
+    onChange(assay, event.target.value);
+  };
+
+  // Render
   return (
     <>
-      {/* gram */}
+      {/* Gram */}
       <fieldset>
-        <legend>GRAM</legend>
+        <legend>GRAM STAIN</legend>
 
         <label>
-          <input type="radio" name="gram" value="positive" />
+          <input
+            type="radio"
+            name="gram"
+            value="positive"
+            onChange={handleChange("gram")}
+          />
           <span>Positive</span>
         </label>
 
         <label>
-          <input type="radio" name="gram" value="negative" />
+          <input
+            type="radio"
+            name="gram"
+            value="negative"
+            onChange={handleChange("gram")}
+          />
           <span>Negative</span>
         </label>
       </fieldset>
 
-      {/* mannitol */}
+      {/* Mannitol */}
       <fieldset>
-        <legend>MANNITOL</legend>
+        <legend>MANNITOL SALT AGAR</legend>
 
         <label>
-          <input type="radio" name="mannitol" value="positive" />
+          <input
+            type="radio"
+            name="mannitol"
+            value="positive"
+            onChange={handleChange("mannitol")}
+          />
           <span>Positive</span>
         </label>
 
         <label>
-          <input type="radio" name="mannitol" value="negative" />
+          <input
+            type="radio"
+            name="mannitol"
+            value="negative"
+            onChange={handleChange("mannitol")}
+          />
           <span>Negative</span>
         </label>
       </fieldset>
 
-      {/* catalase */}
+      {/* Catalase */}
       <fieldset>
         <legend>CATALASE</legend>
 
         <label>
-          <input type="radio" name="catalase" value="positive" />
+          <input
+            type="radio"
+            name="catalase"
+            value="positive"
+            onChange={handleChange("catalase")}
+          />
           <span>Positive</span>
         </label>
 
         <label>
-          <input type="radio" name="catalase" value="negative" />
+          <input
+            type="radio"
+            name="catalase"
+            value="negative"
+            onChange={handleChange("catalase")}
+          />
           <span>Negative</span>
         </label>
       </fieldset>
