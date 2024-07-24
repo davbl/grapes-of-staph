@@ -1,4 +1,5 @@
-const Result = (radioSelections) => {
+/* eslint-disable react/prop-types */
+const Result = ({ radioSelections }) => {
   // Result color-coding:
   // if at least one of the characteristics is negative, result is "No"
   // if all characteristics are positive, result is "Yes"
@@ -25,10 +26,11 @@ const Result = (radioSelections) => {
 
   const result = getResult();
 
-  // HTML
+  // Render
   return (
     <>
       <ol>
+        {/* add appropriate color-coding */}
         <li className={result === "No" ? "red" : ""}>No</li>
         <li className={result === "Possibly" ? "blue" : ""}>Possibly</li>
         <li className={result === "Yes" ? "green" : ""}>Yes</li>
