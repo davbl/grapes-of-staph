@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const Controls = ({ onChange }) => {
+const TraditionalMethods = ({ onChange }) => {
   // take assay and radio selection and pass to App.jsx
   const handleChange = (assay) => (event) => {
     onChange(assay, event.target.value);
@@ -8,9 +8,21 @@ const Controls = ({ onChange }) => {
   // Render
   return (
     <>
+      {/* <h3>Traditional Methods</h3> */}
+
       {/* Gram */}
       <fieldset>
         <legend>GRAM STAIN</legend>
+
+        <label>
+          <input
+            type="radio"
+            name="gram"
+            value="negative"
+            onChange={handleChange("gram")}
+          />
+          <span>Negative</span>
+        </label>
 
         <label>
           <input
@@ -22,14 +34,15 @@ const Controls = ({ onChange }) => {
           <span>Positive</span>
         </label>
 
+        {/* Unknown is same as unselected */}
         <label>
           <input
             type="radio"
             name="gram"
-            value="negative"
+            value="unknown"
             onChange={handleChange("gram")}
           />
-          <span>Negative</span>
+          <span>Unknown</span>
         </label>
       </fieldset>
 
@@ -41,21 +54,43 @@ const Controls = ({ onChange }) => {
           <input
             type="radio"
             name="mannitol"
-            value="positive"
+            value="no-growth"
             onChange={handleChange("mannitol")}
           />
-          <span>Positive</span>
+          <span>No growth</span>
         </label>
 
         <label>
           <input
             type="radio"
             name="mannitol"
-            value="negative"
+            value="red"
             onChange={handleChange("mannitol")}
           />
-          <span>Negative</span>
+          <span>Red, growth</span>
         </label>
+
+        <div className="mannitol-wrap">
+          <label>
+            <input
+              type="radio"
+              name="mannitol"
+              value="yellow"
+              onChange={handleChange("mannitol")}
+            />
+            <span>Yellow</span>
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="mannitol"
+              value="unknown"
+              onChange={handleChange("mannitol")}
+            />
+            <span>Unknown</span>
+          </label>
+        </div>
       </fieldset>
 
       {/* Catalase */}
@@ -66,6 +101,16 @@ const Controls = ({ onChange }) => {
           <input
             type="radio"
             name="catalase"
+            value="negative"
+            onChange={handleChange("catalase")}
+          />
+          <span>Negative</span>
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="catalase"
             value="positive"
             onChange={handleChange("catalase")}
           />
@@ -76,14 +121,14 @@ const Controls = ({ onChange }) => {
           <input
             type="radio"
             name="catalase"
-            value="negative"
+            value="unknown"
             onChange={handleChange("catalase")}
           />
-          <span>Negative</span>
+          <span>Unknown</span>
         </label>
       </fieldset>
     </>
   );
 };
 
-export default Controls;
+export default TraditionalMethods;
