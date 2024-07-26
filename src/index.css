@@ -10,6 +10,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  cursor: default;
 }
 
 body {
@@ -29,11 +31,22 @@ body {
 }
 
 /* Logo */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.28rem;
+
+  svg {
+    padding-bottom: 1px;
+  }
+}
+
 h1 {
   font-size: 1em;
   font-weight: 700;
   /* line-height: 1.1; */
-  margin: 1rem 0rem;
+  margin: 1.25rem 0rem;
   text-align: center;
 }
 
@@ -65,22 +78,41 @@ h2 {
 /* RESULT */
 ol {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
   list-style-type: none;
   padding: 0;
   font-weight: 500;
-  margin: 0.25rem 0;
+  margin: 0.35rem 0;
+}
+
+li {
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.1s ease-in-out;
 }
 
 /* Result colors */
-.red {
-  color: #ff1a40;
+.no {
+  color: white;
+  background-color: #ff6673;
 }
-.blue {
-  color: #006aff;
+.unlikely {
+  color: white;
+  background-color: #d16df2;
 }
-.green {
-  color: #339900;
+.maybe {
+  color: white;
+  background-color: #4d97ff;
+}
+.likely {
+  color: white;
+  background-color: #56bfbf;
+}
+.yes {
+  color: white;
+  background-color: #56bf56;
 }
 
 /* CONTROLS */
@@ -90,28 +122,106 @@ ol {
   gap: 2.5rem;
 }
 
-/* Radio group title */
-legend {
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding-bottom: 0.5rem;
-}
-
 /* Radio group */
 fieldset {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* gap: 1.5rem; */
   border: none;
   margin: 0;
   padding: 0;
 }
 
+/* First label in the fieldset with rounded corners on left side */
+fieldset label:first-of-type {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+fieldset label:nth-of-type(2) {
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+}
+
+/* Last label in the fieldset with rounded corners on right side */
+fieldset label:last-of-type {
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* Adjust rounded corners when radio items wrap on mobile */
+@media (max-width: 390px) {
+  fieldset label:nth-of-type(2) {
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  fieldset label:last-of-type {
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 0px;
+    border-top: 1px solid white;
+  }
+}
+
+/* Radio group title */
+legend {
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
 /* Radio item */
 label {
   cursor: pointer;
+  background-color: #f7f8fa;
+  padding: 0.5rem 0.9rem 0.5rem 0.9rem;
+  accent-color: black;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.1s ease-in-out;
 }
 
-/* Radio item label */
+/* Change bg color of radio item when the input inside is checked */
+label:has(input:checked) {
+  background-color: #f0f1f2;
+}
+
+/* Radio circle */
+input {
+  appearance: none;
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  background-color: white;
+  border: 1.5px solid #242a33;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+input:checked {
+  /* background-color: #242a33; */
+  /* border: 3.5px solid white; */
+  /* outline: 1.5px solid #242a33;
+  outline-offset: -1.5px; */
+  border: 4.25px solid #242a33;
+}
+
+/* input:focus {
+  outline-offset: 0px;
+} */
+
+/* Radio item text */
 span {
-  padding-left: 0.25rem;
+  padding-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.mannitol-wrap {
+  display: flex;
+  flex-wrap: wrap;
 }
