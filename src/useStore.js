@@ -8,27 +8,17 @@ const useStore = create(
     catalase: "",
     step: 1,
 
-    setGram: (value) =>
+    updateSelection: (test, value) =>
       set((state) => {
-        state.gram = value;
-        state.mannitol = "";
-        state.catalase = "";
-      }),
-
-    setMannitol: (value) =>
-      set((state) => {
-        state.mannitol = value;
-        state.catalase = "";
-      }),
-
-    setCatalase: (value) =>
-      set((state) => {
-        state.catalase = value;
-      }),
-
-    setStep: (step) =>
-      set((state) => {
-        state.step = step;
+        state[test] = value;
+        if (test === "gram") {
+          state.mannitol = "";
+          state.catalase = "";
+          state.step = value === "positive" ? 2 : 1;
+        } else if (test === "mannitol") {
+          state.catalase = "";
+          state.step = value === "no-growth" ? 2 : 3;
+        }
       }),
   }))
 );

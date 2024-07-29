@@ -4,39 +4,13 @@ import useStore from "../useStore";
 
 const TraditionalMethods = () => {
   //
-  // Manage state with zustand store
-  const {
-    gram,
-    mannitol,
-    catalase,
-    step,
-    setGram,
-    setMannitol,
-    setCatalase,
-    setStep,
-  } = useStore();
+  // Destructure state held in zustand store
+  const { gram, mannitol, catalase, step, updateSelection } = useStore();
 
   const handleChange = (assay, value) => {
     // Debugging
     // console.log(`Changing ${assay} to ${value}`);
-
-    if (assay === "gram") {
-      setGram(value);
-      if (value === "positive") {
-        setStep(2);
-      } else if (value === "negative") {
-        setStep(1);
-      }
-    } else if (assay === "mannitol") {
-      setMannitol(value);
-      if (value === "no-growth") {
-        setStep(2);
-      } else if (value === "red" || value === "yellow") {
-        setStep(3);
-      }
-    } else if (assay === "catalase") {
-      setCatalase(value);
-    }
+    updateSelection(assay, value);
   };
 
   // Render
