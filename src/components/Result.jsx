@@ -1,26 +1,48 @@
 /* eslint-disable react/prop-types */
-const Result = ({ radioSelections }) => {
-  // Calculate result and send for color-coding
+
+import useStore from "../useStore";
+
+const Result = () => {
+  //
+  // Destructure radio selections object from zustand store
+  const { gram, mannitol, catalase } = useStore();
+
+  // Calculate result from radio selections
   const calculateResult = () => {
-    // destructure radio selections object
-    const { gram, mannitol, catalase } = radioSelections;
-    if (
-      gram === "negative" ||
-      catalase === "negative" ||
-      mannitol === "no-growth"
-    ) {
+    //
+    // Gram neg, step 1
+    if (gram === "negative") {
       return "No";
-    } else if (gram === "positive" && catalase === "positive") {
-      if (mannitol === "yellow") {
-        return "Likely";
-      } else if (mannitol === "red") {
+    }
+    // Gram pos, step 1
+    if (gram === "positive") {
+      // MSA no-growth, step 2
+      if (mannitol === "no-growth") {
+        return "No";
+      }
+      // MSA red and catalase neg, step 3
+      // has to be before MSA red, step 2
+      if (mannitol === "red" && catalase === "negative") {
+        return "No";
+      }
+      // MSA red, step 2
+      if (mannitol === "red") {
         return "Unlikely";
-      } else {
+      }
+      // MSA yellow and catalase pos, step 3
+      if (mannitol === "yellow" && catalase === "positive") {
+        return "Likely";
+      }
+      // MSA yellow and catalase neg, step 3
+      if (mannitol === "yellow" && catalase === "negative") {
         return "Maybe";
       }
-    } else {
-      return "Maybe";
+      // MSA yellow, step 2
+      if (mannitol === "yellow") {
+        return "Likely";
+      }
     }
+    return "Maybe";
   };
 
   const result = calculateResult();

@@ -1,17 +1,51 @@
 /* eslint-disable react/prop-types */
-const TraditionalMethods = ({ onChange }) => {
-  // take assay and radio selection and pass to App.jsx
-  const handleChange = (assay) => (event) => {
-    onChange(assay, event.target.value);
+
+import useStore from "../useStore";
+
+const TraditionalMethods = () => {
+  //
+  // Manage state with zustand store
+  const {
+    gram,
+    mannitol,
+    catalase,
+    step,
+    setGram,
+    setMannitol,
+    setCatalase,
+    setStep,
+  } = useStore();
+
+  const handleChange = (assay, value) => {
+    // Debugging
+    // console.log(`Changing ${assay} to ${value}`);
+
+    if (assay === "gram") {
+      setGram(value);
+      if (value === "positive") {
+        setStep(2);
+      } else if (value === "negative") {
+        setStep(1);
+      }
+    } else if (assay === "mannitol") {
+      setMannitol(value);
+      if (value === "no-growth") {
+        setStep(2);
+      } else if (value === "red" || value === "yellow") {
+        setStep(3);
+      }
+    } else if (assay === "catalase") {
+      setCatalase(value);
+    }
   };
 
   // Render
   return (
     <>
-      {/* <h3>Traditional Methods</h3> */}
+      {/* <h3>Traditional Methods</h3> TODO */}
 
-      {/* Gram */}
-      <fieldset>
+      {/* GRAM STAIN */}
+      <fieldset className={step >= 1 ? "enabled" : "disabled"}>
         <legend>GRAM STAIN</legend>
 
         <label>
@@ -19,7 +53,8 @@ const TraditionalMethods = ({ onChange }) => {
             type="radio"
             name="gram"
             value="negative"
-            onChange={handleChange("gram")}
+            checked={gram === "negative"}
+            onChange={(e) => handleChange("gram", e.target.value)}
           />
           <span>Negative</span>
         </label>
@@ -29,25 +64,15 @@ const TraditionalMethods = ({ onChange }) => {
             type="radio"
             name="gram"
             value="positive"
-            onChange={handleChange("gram")}
+            checked={gram === "positive"}
+            onChange={(e) => handleChange("gram", e.target.value)}
           />
           <span>Positive</span>
         </label>
-
-        {/* Unknown is same as unselected */}
-        <label>
-          <input
-            type="radio"
-            name="gram"
-            value="unknown"
-            onChange={handleChange("gram")}
-          />
-          <span>Unknown</span>
-        </label>
       </fieldset>
 
-      {/* Mannitol */}
-      <fieldset>
+      {/* MSA */}
+      <fieldset className={step >= 2 ? "enabled" : "disabled"}>
         <legend>MANNITOL SALT AGAR</legend>
 
         <label>
@@ -55,7 +80,8 @@ const TraditionalMethods = ({ onChange }) => {
             type="radio"
             name="mannitol"
             value="no-growth"
-            onChange={handleChange("mannitol")}
+            checked={mannitol === "no-growth"}
+            onChange={(e) => handleChange("mannitol", e.target.value)}
           />
           <span>No growth</span>
         </label>
@@ -65,36 +91,26 @@ const TraditionalMethods = ({ onChange }) => {
             type="radio"
             name="mannitol"
             value="red"
-            onChange={handleChange("mannitol")}
+            checked={mannitol === "red"}
+            onChange={(e) => handleChange("mannitol", e.target.value)}
           />
           <span>Red, growth</span>
         </label>
 
-        <div className="mannitol-wrap">
-          <label>
-            <input
-              type="radio"
-              name="mannitol"
-              value="yellow"
-              onChange={handleChange("mannitol")}
-            />
-            <span>Yellow</span>
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              name="mannitol"
-              value="unknown"
-              onChange={handleChange("mannitol")}
-            />
-            <span>Unknown</span>
-          </label>
-        </div>
+        <label>
+          <input
+            type="radio"
+            name="mannitol"
+            value="yellow"
+            checked={mannitol === "yellow"}
+            onChange={(e) => handleChange("mannitol", e.target.value)}
+          />
+          <span>Yellow</span>
+        </label>
       </fieldset>
 
-      {/* Catalase */}
-      <fieldset>
+      {/* CATALASE */}
+      <fieldset className={step >= 3 ? "enabled" : "disabled"}>
         <legend>CATALASE</legend>
 
         <label>
@@ -102,7 +118,8 @@ const TraditionalMethods = ({ onChange }) => {
             type="radio"
             name="catalase"
             value="negative"
-            onChange={handleChange("catalase")}
+            checked={catalase === "negative"}
+            onChange={(e) => handleChange("catalase", e.target.value)}
           />
           <span>Negative</span>
         </label>
@@ -112,19 +129,10 @@ const TraditionalMethods = ({ onChange }) => {
             type="radio"
             name="catalase"
             value="positive"
-            onChange={handleChange("catalase")}
+            checked={catalase === "positive"}
+            onChange={(e) => handleChange("catalase", e.target.value)}
           />
           <span>Positive</span>
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="catalase"
-            value="unknown"
-            onChange={handleChange("catalase")}
-          />
-          <span>Unknown</span>
         </label>
       </fieldset>
     </>

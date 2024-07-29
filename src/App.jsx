@@ -1,20 +1,8 @@
-import { useState } from "react";
 import Result from "./components/Result";
 import TraditionalMethods from "./components/TraditionalMethods";
 // import MolecularMethods from "./components/MolecularMethods";
 
 const App = () => {
-  const [radioSelections, setRadioSelections] = useState({
-    gram: "",
-    mannitol: "",
-    catalase: "",
-  });
-
-  // update state of radio selections from Controls component
-  const handleSelectionChange = (assay, value) => {
-    setRadioSelections({ ...radioSelections, [assay]: value });
-  };
-
   // Render
   return (
     <>
@@ -61,20 +49,16 @@ const App = () => {
       </header>
 
       <main>
-        {/* Title + result */}
         <section>
+          {/* Hero text */}
           <h2>Is it S. aureus?</h2>
-          {/* pass radio selections to calculate result */}
-          <Result radioSelections={radioSelections} />
+          <Result />
         </section>
 
         {/* Methods */}
         <section className="controls">
-          {/* onChange, components below can call handleSelectionChange */}
-          {/* Molecular methods */}
           {/* <MolecularMethods onChange={handleSelectionChange} />  TODO  */}
-          {/* Traditional methods */}
-          <TraditionalMethods onChange={handleSelectionChange} />
+          <TraditionalMethods />
         </section>
       </main>
     </>
