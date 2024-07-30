@@ -1,6 +1,7 @@
 import Result from "./components/Result";
 import TraditionalMethods from "./components/TraditionalMethods";
-// import MolecularMethods from "./components/MolecularMethods";
+import MolecularMethods from "./components/MolecularMethods";
+import ResetBtn from "./components/ResetBtn";
 
 const App = () => {
   // Render
@@ -8,8 +9,8 @@ const App = () => {
     <>
       <header>
         <svg
-          width="13"
-          height="13"
+          width="13.5"
+          height="13.5"
           viewBox="0 0 64 64"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +50,7 @@ const App = () => {
       </header>
 
       <main>
-        <section>
+        <section className="hero">
           {/* Hero text */}
           <h2>Is it S. aureus?</h2>
           <Result />
@@ -57,9 +58,11 @@ const App = () => {
 
         {/* Methods */}
         <section className="controls">
-          {/* <MolecularMethods onChange={handleSelectionChange} />  TODO  */}
+          <MolecularMethods />
           <TraditionalMethods />
         </section>
+
+        <ResetBtn />
       </main>
     </>
   );

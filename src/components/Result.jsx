@@ -3,6 +3,10 @@
 import useStore from "../useStore";
 
 const resultLookup = {
+  "pcr:negative": "No",
+  "pcr:positive": "Yes",
+  "maldi:negative": "No",
+  "maldi:positive": "Yes",
   "gram:negative": "No",
   "gram:positive,mannitol:no-growth": "No",
   "gram:positive,mannitol:red,catalase:negative": "No",
@@ -15,7 +19,7 @@ const resultLookup = {
 const Result = () => {
   //
   // Destructure radio selections object from zustand store
-  const { gram, mannitol, catalase } = useStore();
+  const { pcr, maldi, gram, mannitol, catalase } = useStore();
 
   // Calculate result from radio selections
   const calculateResult = () => {
@@ -25,6 +29,8 @@ const Result = () => {
       gram && `gram:${gram}`,
       mannitol && `mannitol:${mannitol}`,
       catalase && `catalase:${catalase}`,
+      pcr && `pcr:${pcr}`,
+      maldi && `maldi:${maldi}`,
     ]
       // Remove falsy values
       .filter(Boolean)
