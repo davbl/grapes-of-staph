@@ -5,17 +5,34 @@ import useStore from "../useStore";
 const TraditionalMethods = () => {
   //
   // Destructure state held in zustand store
-  const { gram, mannitol, catalase, step, updateTraditionalState } = useStore();
+  const {
+    gram,
+    mannitol,
+    catalase,
+    step,
+    updateTraditionalState,
+    pcr,
+    maldi,
+    updateMolecularState,
+  } = useStore();
 
   const handleChange = (assay, value) => {
-    // Debugging
-    // console.log(`Changing ${assay} to ${value}`);
+    //
     updateTraditionalState(assay, value);
+    // Disable molecular methods
+    if (assay === "gram") {
+      updateMolecularState("pcr", "");
+      updateMolecularState("maldi", "");
+    }
   };
 
   // Render
   return (
-    <div className="method-category">
+    <div
+      className={`method-category ${
+        pcr !== "" || maldi !== "" ? "disabled" : ""
+      }`}>
+      {/* Header */}
       <div className="method-category-header">
         <h3>Traditional Methods</h3>
         <svg
@@ -40,7 +57,7 @@ const TraditionalMethods = () => {
 
       <div className="radios-column">
         {/* GRAM STAIN */}
-        <fieldset className={step >= 1 ? "enabled" : "disabled"}>
+        <fieldset className={step >= 1 ? "" : "disabled"}>
           <legend>GRAM STAIN</legend>
 
           <label>
@@ -67,7 +84,7 @@ const TraditionalMethods = () => {
         </fieldset>
 
         {/* MSA */}
-        <fieldset className={step >= 2 ? "enabled" : "disabled"}>
+        <fieldset className={step >= 2 ? "" : "disabled"}>
           <legend>MANNITOL SALT AGAR</legend>
 
           <label>
@@ -105,7 +122,7 @@ const TraditionalMethods = () => {
         </fieldset>
 
         {/* CATALASE */}
-        <fieldset className={step >= 3 ? "enabled" : "disabled"}>
+        <fieldset className={step >= 3 ? "" : "disabled"}>
           <legend>CATALASE</legend>
 
           <label>

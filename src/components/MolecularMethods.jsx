@@ -5,17 +5,23 @@ import useStore from "../useStore";
 const MolecularMethods = () => {
   //
   // Destructure state held in zustand store
-  const { pcr, maldi, updateMolecularState } = useStore();
+  const { pcr, maldi, updateMolecularState, gram, updateTraditionalState } =
+    useStore();
 
   const handleChange = (assay, value) => {
-    // Debugging
-    // console.log(`Changing ${assay} to ${value}`);
+    //
     updateMolecularState(assay, value);
+    // Disable the other assay
+    updateMolecularState(assay === "pcr" ? "maldi" : "pcr", "disabled");
+    // Disable traditional methods
+    updateTraditionalState("gram", "");
   };
 
   // Render
   return (
-    <div className="method-category">
+    <div className={`method-category ${gram ? "disabled" : ""}`}>
+      {/* <div className="method-category"> */}
+      {/* Header */}
       <div className="method-category-header">
         <h3>Molecular Methods</h3>
         <svg
@@ -43,9 +49,10 @@ const MolecularMethods = () => {
         </svg>
       </div>
 
+      {/* <div className={`radios-column ${gram ? "disabled" : ""}`}> */}
       <div className="radios-column">
         {/* PCR */}
-        <fieldset>
+        <fieldset className={pcr === "disabled" ? "disabled" : ""}>
           <legend>(Q)PCR</legend>
 
           <label>
@@ -72,7 +79,7 @@ const MolecularMethods = () => {
         </fieldset>
 
         {/* MALDI */}
-        <fieldset>
+        <fieldset className={maldi === "disabled" ? "disabled" : ""}>
           <legend>MALDI-TOF MS</legend>
 
           <label>

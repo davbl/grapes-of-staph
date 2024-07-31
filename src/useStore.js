@@ -31,11 +31,11 @@ const useStore = create(
     // for Reset button
     resetSelections: () =>
       set({
-        pcr: false,
-        maldi: false,
-        gram: false,
-        mannitol: false,
-        catalase: false,
+        pcr: "",
+        maldi: "",
+        gram: "",
+        mannitol: "",
+        catalase: "",
         step: 1,
       }),
   }))
