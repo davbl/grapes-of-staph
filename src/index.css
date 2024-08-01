@@ -106,6 +106,7 @@ h2 {
   -webkit-backdrop-filter: blur(50px);
 }
 
+/* Result row */
 ol {
   display: flex;
   flex-wrap: wrap;
@@ -147,6 +148,7 @@ li {
 }
 
 /* CONTROLS */
+
 .controls {
   display: flex;
   flex-direction: row;
@@ -175,7 +177,7 @@ li {
   align-items: center;
 }
 
-/* Methods header */
+/* Methods heading */
 h3 {
   margin: 0;
   color: var(--grey-text-color);
@@ -199,18 +201,19 @@ fieldset {
   padding: 0;
 }
 
-/* First label in the fieldset with rounded corners on left side */
+/* First label in the fieldset to have rounded corners on left side */
 fieldset label:first-of-type {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
 
+/* Separator */
 fieldset label:nth-of-type(2) {
   border-left: 1px solid var(--card-bg-color);
   border-right: 1px solid var(--card-bg-color);
 }
 
-/* Last label in the fieldset with rounded corners on right side */
+/* Last label in the fieldset to have rounded corners on right side */
 fieldset label:last-of-type {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -262,7 +265,7 @@ fieldset label:last-of-type {
   }
 }
 
-/* Radio group title */
+/* Radio group heading */
 legend {
   font-weight: 600;
   font-size: 0.95rem;
@@ -289,6 +292,11 @@ label:hover {
   }
 }
 
+label:active {
+  background-color: #ededed;
+}
+
+/* Focus */
 label:has(input:focus-visible) {
   outline: solid var(--blackish-color);
   outline-offset: -1.5px;
@@ -332,16 +340,13 @@ span {
   vertical-align: middle;
 }
 
+/* For when other methods are selected */
 .disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
-/* .enabled {
-  opacity: 1;
-  pointer-events: all;
-} */
-
+/* Reset all radio selections */
 .reset-btn {
   background-color: #f5f5f5;
   color: var(--blackish-color);
@@ -358,11 +363,20 @@ span {
   font-size: 1rem;
   align-self: center;
   /* margin-bottom: 1rem; */
+  /* transition: all 0.05s ease-in-out; */
+  /* outline-offset: -1.5px; */
 }
 
 .reset-btn:hover {
   /* background-color: #f2f2f2; */
   outline: 1.5px solid #9d70cc;
+  outline-offset: -1.5px;
+}
+
+.reset-btn:active {
+  background-color: #f0f0f0;
+  /* outline: 1.5px solid #9d70cc;
+  outline-offset: -1.5px; */
 }
 
 .reset-btn:focus-visible {
