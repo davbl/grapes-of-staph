@@ -16,6 +16,11 @@
 
   cursor: default;
   box-sizing: border-box;
+  /* This so that long-press on a button on mobile doesn't select the btn text */
+  user-select: none;
+  -webkit-user-select: none;
+  /* Disable "tap highlight" effect on iOS for calmer, tidier ux/ui */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -28,7 +33,7 @@ body {
 }
 
 #root {
-  margin: 0rem 1.5rem 0rem 1.5rem;
+  margin: 0rem 3rem 0rem 3rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -66,10 +71,10 @@ main {
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
-  /* gap: 5rem; */
-  justify-content: space-evenly;
+  gap: 4rem;
+  /* justify-content: space-evenly; */
   /* align-items: center; */
-  /* padding-bottom: 5rem; */
+  padding-bottom: 5rem;
   /* margin: 1.5rem; */
 }
 
@@ -132,7 +137,7 @@ li {
 }
 .unlikely {
   color: white;
-  background-color: #d479f2;
+  background-color: #f285e9;
 }
 .maybe {
   color: white;
@@ -140,11 +145,11 @@ li {
 }
 .likely {
   color: white;
-  background-color: #3dcccc;
+  background-color: #47cccc;
 }
 .yes {
   color: white;
-  background-color: #52cc52;
+  background-color: #6ecc5c;
 }
 
 /* CONTROLS */
@@ -169,6 +174,7 @@ li {
   background-color: var(--card-bg-color);
   padding: 2rem 2.5rem 2.5rem 2.5rem;
   border-radius: 0.5rem;
+  max-height: min-content;
 }
 
 .method-category-header {
@@ -188,6 +194,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  max-height: min-content;
 }
 
 /* Radio group */
@@ -199,6 +206,7 @@ fieldset {
   border: none;
   margin: 0;
   padding: 0;
+  max-height: min-content;
 }
 
 /* First label in the fieldset to have rounded corners on left side */
@@ -217,52 +225,6 @@ fieldset label:nth-of-type(2) {
 fieldset label:last-of-type {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
-}
-
-/* Adjust rounded corners when radio items wrap on mobile */
-@media (max-width: 395px) {
-  fieldset label:nth-of-type(2) {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-  }
-
-  fieldset label:nth-of-type(3) {
-    border-top: 1px solid var(--card-bg-color);
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-  }
-}
-
-@media (max-width: 492px) {
-  .controls {
-    width: 100%;
-  }
-
-  .method-category {
-    min-width: 250px;
-    padding: 1.25rem 1rem 2rem 1rem;
-    gap: 1rem;
-  }
-
-  .radios-column {
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 999px) {
-  #root {
-    margin: 0rem 0rem 2rem 0rem;
-  }
-
-  main {
-    gap: 2rem;
-  }
-
-  .controls {
-    gap: 2rem;
-  }
 }
 
 /* Radio group heading */
@@ -285,10 +247,13 @@ label {
   max-height: 1.5rem; /* ensure consistent height. there was an issue on mobile. (content is 24px = 1.5rem x 16) */
 }
 
-label:hover {
-  input {
-    background-color: #f5ebff;
-    /* transition: all 0.1s ease-in-out; */
+/* This is so that hover doesn't persist on mobile after tapping btn */
+@media (hover: hover) {
+  label:hover {
+    input {
+      background-color: #f5ebff;
+      /* transition: all 0.1s ease-in-out; */
+    }
   }
 }
 
@@ -348,8 +313,8 @@ span {
 
 /* Reset all radio selections */
 .reset-btn {
-  background-color: #f5f5f5;
-  color: var(--blackish-color);
+  background-color: #f7f0ff;
+  color: #8a62b2;
   border: none;
   padding: 0.6rem 0.97rem 0.6rem 0.85rem;
   border-radius: 6px;
@@ -361,20 +326,28 @@ span {
   cursor: pointer;
   font-weight: 500;
   font-size: 1rem;
-  align-self: center;
+  /* align-self: center; */
   /* margin-bottom: 1rem; */
   /* transition: all 0.05s ease-in-out; */
   /* outline-offset: -1.5px; */
+  position: fixed;
+  bottom: 1.75rem;
+  /* right: 1rem; */
+  right: 50%;
+  transform: translateX(50%);
 }
 
-.reset-btn:hover {
-  /* background-color: #f2f2f2; */
-  outline: 1.5px solid #9d70cc;
-  outline-offset: -1.5px;
+/* This is so that hover doesn't persist on mobile after tapping btn */
+@media (hover: hover) {
+  .reset-btn:hover {
+    /* background-color: #f2f2f2; */
+    outline: 1.5px solid #a273d1;
+    outline-offset: -1.5px;
+  }
 }
 
 .reset-btn:active {
-  background-color: #f0f0f0;
+  background-color: #f5ebff;
   /* outline: 1.5px solid #9d70cc;
   outline-offset: -1.5px; */
 }
@@ -382,4 +355,60 @@ span {
 .reset-btn:focus-visible {
   outline: solid;
   outline-offset: -1.5px;
+}
+
+/* Adjust rounded corners when radio items wrap on mobile */
+@media (max-width: 395px) {
+  fieldset label:nth-of-type(2) {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  fieldset label:nth-of-type(3) {
+    border-top: 1px solid var(--card-bg-color);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+}
+
+@media (max-width: 492px) {
+  main {
+    padding-bottom: 4.5rem;
+  }
+
+  .controls {
+    width: 100%;
+  }
+
+  .method-category {
+    min-width: 250px;
+    padding: 1.25rem 1rem 2rem 1rem;
+    gap: 1rem;
+  }
+
+  .radios-column {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1047px) {
+  #root {
+    margin: 0rem 0rem 0rem 0rem;
+  }
+
+  main {
+    gap: 2rem;
+  }
+
+  .controls {
+    gap: 2rem;
+  }
+
+  .reset-btn {
+    bottom: 1rem;
+    right: 1rem;
+    transform: translateX(0%);
+  }
 }
