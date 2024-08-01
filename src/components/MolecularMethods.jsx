@@ -11,7 +11,7 @@ const MolecularMethods = () => {
   const handleChange = (assay, value) => {
     //
     updateMolecularState(assay, value);
-    // Disable the other assay
+    // Disable the second assay
     updateMolecularState(assay === "pcr" ? "maldi" : "pcr", "disabled");
     // Disable traditional methods
     updateTraditionalState("gram", "");
@@ -19,6 +19,7 @@ const MolecularMethods = () => {
 
   // Render
   return (
+    // if gram, add class 'disabled'
     <div className={`method-category ${gram ? "disabled" : ""}`}>
       {/* <div className="method-category"> */}
       {/* Header */}

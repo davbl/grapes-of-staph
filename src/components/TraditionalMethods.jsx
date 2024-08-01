@@ -28,6 +28,7 @@ const TraditionalMethods = () => {
 
   // Render
   return (
+    // Add 'disabled' class if pcr or maldi is selected
     <div
       className={`method-category ${
         pcr !== "" || maldi !== "" ? "disabled" : ""

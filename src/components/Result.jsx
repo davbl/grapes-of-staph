@@ -22,6 +22,7 @@ const Result = () => {
   // Destructure radio selections object from zustand store
   const { pcr, maldi, gram, mannitol, catalase } = useStore();
 
+  // Sticky Result when scrolling on mobile
   const stickyRef = useRef(null);
   const placeholderRef = useRef(null);
 
@@ -78,6 +79,7 @@ const Result = () => {
   // Render
   return (
     <>
+      {/* Sticky */}
       <div ref={placeholderRef}></div>
       <div ref={stickyRef} className="sticky-container">
         <ol>
