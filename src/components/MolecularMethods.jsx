@@ -31,7 +31,7 @@ const MolecularMethods = () => {
           height="18"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#acaaad"
+          stroke="#615c66"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -64,7 +64,7 @@ const MolecularMethods = () => {
               checked={pcr === "negative"}
               onChange={(e) => handleChange("pcr", e.target.value)}
             />
-            <span>Negative</span>
+            <span>− Neg</span>
           </label>
 
           <label>
@@ -75,7 +75,7 @@ const MolecularMethods = () => {
               checked={pcr === "positive"}
               onChange={(e) => handleChange("pcr", e.target.value)}
             />
-            <span>Positive</span>
+            <span>+ Pos</span>
           </label>
         </fieldset>
 
@@ -91,7 +91,7 @@ const MolecularMethods = () => {
               checked={maldi === "negative"}
               onChange={(e) => handleChange("maldi", e.target.value)}
             />
-            <span>Negative</span>
+            <span>− Neg</span>
           </label>
 
           <label>
@@ -102,7 +102,7 @@ const MolecularMethods = () => {
               checked={maldi === "positive"}
               onChange={(e) => handleChange("maldi", e.target.value)}
             />
-            <span>Positive</span>
+            <span>+ Pos</span>
           </label>
         </fieldset>
         {/*  */}

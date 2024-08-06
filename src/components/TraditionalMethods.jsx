@@ -42,7 +42,7 @@ const TraditionalMethods = () => {
           height="18"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#acaaad"
+          stroke="#615c66"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -69,7 +69,7 @@ const TraditionalMethods = () => {
               checked={gram === "negative"}
               onChange={(e) => handleChange("gram", e.target.value)}
             />
-            <span>Negative</span>
+            <span>− Neg</span>
           </label>
 
           <label>
@@ -80,7 +80,7 @@ const TraditionalMethods = () => {
               checked={gram === "positive"}
               onChange={(e) => handleChange("gram", e.target.value)}
             />
-            <span>Positive</span>
+            <span>+ Pos</span>
           </label>
         </fieldset>
 
@@ -96,7 +96,7 @@ const TraditionalMethods = () => {
               checked={mannitol === "no-growth"}
               onChange={(e) => handleChange("mannitol", e.target.value)}
             />
-            <span>No growth</span>
+            <span>− No growth</span>
           </label>
 
           <label>
@@ -107,7 +107,7 @@ const TraditionalMethods = () => {
               checked={mannitol === "red"}
               onChange={(e) => handleChange("mannitol", e.target.value)}
             />
-            <span>Red, growth</span>
+            <span>± Red, growth</span>
           </label>
 
           <label>
@@ -118,7 +118,7 @@ const TraditionalMethods = () => {
               checked={mannitol === "yellow"}
               onChange={(e) => handleChange("mannitol", e.target.value)}
             />
-            <span>Yellow</span>
+            <span>+ Yellow</span>
           </label>
         </fieldset>
 
@@ -134,7 +134,7 @@ const TraditionalMethods = () => {
               checked={catalase === "negative"}
               onChange={(e) => handleChange("catalase", e.target.value)}
             />
-            <span>Negative</span>
+            <span>− Neg</span>
           </label>
 
           <label>
@@ -145,7 +145,7 @@ const TraditionalMethods = () => {
               checked={catalase === "positive"}
               onChange={(e) => handleChange("catalase", e.target.value)}
             />
-            <span>Positive</span>
+            <span>+ Pos</span>
           </label>
         </fieldset>
         {/*  */}
