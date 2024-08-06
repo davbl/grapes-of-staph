@@ -3,11 +3,21 @@
   line-height: 1.5;
   font-weight: 400;
 
+  /* COLORS */
   background-color: #ffffff;
-  color: #555059;
-  --blackish-color: #555059;
-  --grey-text-color: #acaaad;
-  --card-bg-color: #fcfcfc;
+  color: #615c66; /* same as --blackish-color, as fallback */
+  --blackish-color: #615c66;
+  --card-bg-color: white;
+
+  --radio-unselected: #f5f2f7;
+  --radio-selected: #e8e4ed;
+  --radio-hover: #efebf2; /* TODO */
+  /* --radio-active: #e2dce8;  not using anymore */
+
+  --btn-bg: #f2e5ff;
+  --btn-text: #775499;
+  --btn-hover: #9268bd;
+  --btn-active: #eddbff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,6 +31,8 @@
   -webkit-user-select: none;
   /* Disable "tap highlight" effect on iOS for calmer, tidier ux/ui */
   -webkit-tap-highlight-color: transparent;
+
+  --card-width: 444px;
 }
 
 body {
@@ -33,7 +45,7 @@ body {
 }
 
 #root {
-  margin: 0rem 3rem 0rem 3rem;
+  margin: 0rem 0rem 0rem 0rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -71,11 +83,14 @@ main {
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
-  gap: 4rem;
-  /* justify-content: space-evenly; */
+  /* gap: 4rem; */
+  justify-content: space-evenly;
   /* align-items: center; */
-  padding-bottom: 5rem;
+  padding: 0rem 4rem 6rem 4rem;
   /* margin: 1.5rem; */
+  background-color: #f7f5fa;
+  /* border-top-right-radius: 8px;
+  border-top-left-radius: 8px; */
 }
 
 /* Hero text + Result */
@@ -85,14 +100,16 @@ main {
   /* gap: 0.1rem; */
   position: relative;
   overflow-y: visible;
-  padding-top: 1.2rem;
+  /* padding-top: 1rem; */
 }
 
 /* Hero text */
 h2 {
   margin: 0;
-  font-size: 2.6rem;
-  color: var(--grey-text-color);
+  padding-top: 0.75rem;
+  padding-bottom: 0.1rem;
+  font-size: 3.5rem;
+  color: var(--blackish-color);
   text-align: center;
   line-height: 90%;
 }
@@ -103,7 +120,7 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: white;
+  /* background-color: white; */
   /* align-self: flex-start; */
   /* justify-self: flex-start; */
   background-color: rgba(255, 255, 255, 0);
@@ -155,26 +172,30 @@ li {
 /* CONTROLS */
 
 .controls {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--card-width));
+  /* display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   /* justify-content: space-evenly; */
   justify-content: center;
   gap: 4rem;
 }
 
 .method-category {
-  flex: 1;
-  max-width: 364px;
-  min-width: 364px;
+  /* flex: 1;
+  max-width: 364px; 
+  min-width: 364px;  */
   /* width: 40%; */
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.6rem;
   background-color: var(--card-bg-color);
-  padding: 2rem 2.5rem 2.5rem 2.5rem;
+  padding: 2.1rem 2.5rem 2.65rem 2.5rem;
   border-radius: 0.5rem;
   max-height: min-content;
+  /* x y blur spread color */
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
 }
 
 .method-category-header {
@@ -186,8 +207,8 @@ li {
 /* Methods heading */
 h3 {
   margin: 0;
-  color: var(--grey-text-color);
-  font-size: 1.25rem;
+  color: var(--blackish-color);
+  font-size: 1.5rem;
 }
 
 .radios-column {
@@ -200,13 +221,14 @@ h3 {
 /* Radio group */
 fieldset {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* if issue, i could wrap only on mobile -> this is solved by grid */
   /* justify-content: center; */
   /* gap: 1.5rem; */
   border: none;
   margin: 0;
   padding: 0;
   max-height: min-content;
+  flex-shrink: 1;
 }
 
 /* First label in the fieldset to have rounded corners on left side */
@@ -217,8 +239,10 @@ fieldset label:first-of-type {
 
 /* Separator */
 fieldset label:nth-of-type(2) {
-  border-left: 1px solid var(--card-bg-color);
-  border-right: 1px solid var(--card-bg-color);
+  /* border-left: 1px solid var(--card-bg-color);
+  border-right: 1px solid var(--card-bg-color); */
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 /* Last label in the fieldset to have rounded corners on right side */
@@ -238,28 +262,39 @@ legend {
 /* Radio item */
 label {
   cursor: pointer;
-  background-color: #f2f2f2;
-  padding: 0.5rem 0.95rem 0.5rem 0.85rem;
-  accent-color: black;
+  background-color: var(--radio-unselected);
+  padding: 0.5rem 1rem 0.5rem 0.85rem;
+  /* accent-color: var(
+    --blackish-color
+  ); this colors associated input */
   display: flex;
   align-items: center;
-  transition: background-color 0.1s ease-in-out;
+  /* transition: background-color 0.1s ease-in-out;  with this off, radio btns are more responsive */
   max-height: 1.5rem; /* ensure consistent height. there was an issue on mobile. (content is 24px = 1.5rem x 16) */
+  max-width: fit-content;
+  flex-shrink: 1;
 }
 
 /* This is so that hover doesn't persist on mobile after tapping btn */
 @media (hover: hover) {
   label:hover {
-    input {
-      background-color: #f5ebff;
-      /* transition: all 0.1s ease-in-out; */
-    }
+    background-color: var(--radio-hover);
+    /* outline: 1.5px solid var(--radio-hover);
+    outline-offset: -1.5px; */
+    /* color: violet; */
+
+    /* input {
+      background-color: red;
+      transition: all 0.1s ease-in-out;
+    } */
   }
 }
 
-label:active {
-  background-color: #ededed;
-}
+/* Commented out because it causes a flicker when pressed on mobile (iphone, ipad) */
+/* the Reset btn:active doesn't have this problem. The label aka radio item, 1. gives feeback by getting selected, 2. the flicker is a quick succession of active and selected states - too much happening at once */
+/* label:active {
+  background-color: var(--radio-active);
+} */
 
 /* Focus */
 label:has(input:focus-visible) {
@@ -269,13 +304,18 @@ label:has(input:focus-visible) {
 
 /* Change bg color of radio item when the input inside is checked */
 label:has(input:checked) {
-  background-color: #e8e8e8;
+  background-color: var(--radio-selected);
+  cursor: default;
 }
 
 /* Radio circle */
 input {
   appearance: none;
-  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  width: 0px;
+  /* border-radius: 50%;
   width: 13px;
   height: 13px;
   margin: 0 0 1px 0;
@@ -283,16 +323,16 @@ input {
   border: 1.5px solid var(--blackish-color);
   outline: none;
   cursor: pointer;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out; */
 }
 
-input:checked {
-  /* background-color: #242a33; */
-  /* border: 3.5px solid white; */
-  /* outline: 1.5px solid #242a33;
+/* input:checked { */
+/* background-color: #242a33; */
+/* border: 3.5px solid white; */
+/* outline: 1.5px solid #242a33;
   outline-offset: -1.5px; */
-  border: 4.25px solid var(--blackish-color);
-}
+/* border: 4.25px solid var(--blackish-color); */
+/* } */
 
 /* input:focus-visible {
     outline: 2px solid var(--blackish-color);
@@ -301,7 +341,7 @@ input:checked {
 
 /* Radio item text */
 span {
-  padding-left: 0.35rem;
+  /* padding-left: 0.35rem; */
   vertical-align: middle;
 }
 
@@ -313,8 +353,8 @@ span {
 
 /* Reset all radio selections */
 .reset-btn {
-  background-color: #f7f0ff;
-  color: #8a62b2;
+  background-color: var(--btn-bg); /* TODO */
+  color: var(--btn-text); /* TODO */
   border: none;
   padding: 0.6rem 0.97rem 0.6rem 0.85rem;
   border-radius: 6px;
@@ -328,7 +368,7 @@ span {
   font-size: 1rem;
   /* align-self: center; */
   /* margin-bottom: 1rem; */
-  /* transition: all 0.05s ease-in-out; */
+  /* transition: all 0.05s ease-in-out;  the outline is weirdly animated, so off */
   /* outline-offset: -1.5px; */
   position: fixed;
   bottom: 1.75rem;
@@ -341,13 +381,13 @@ span {
 @media (hover: hover) {
   .reset-btn:hover {
     /* background-color: #f2f2f2; */
-    outline: 1.5px solid #a273d1;
+    outline: 1.5px solid var(--btn-hover); /* TODO */
     outline-offset: -1.5px;
   }
 }
 
 .reset-btn:active {
-  background-color: #f5ebff;
+  background-color: var(--btn-active); /* TODO */
   /* outline: 1.5px solid #9d70cc;
   outline-offset: -1.5px; */
 }
@@ -357,33 +397,48 @@ span {
   outline-offset: -1.5px;
 }
 
-/* Adjust rounded corners when radio items wrap on mobile */
-@media (max-width: 395px) {
-  fieldset label:nth-of-type(2) {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-  }
-
-  fieldset label:nth-of-type(3) {
-    border-top: 1px solid var(--card-bg-color);
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-  }
-}
-
-@media (max-width: 492px) {
+@media (max-width: 1079px) {
   main {
-    padding-bottom: 4.5rem;
+    padding: 0rem 0rem 4.5rem 0rem;
   }
 
   .controls {
-    width: 100%;
+    /* grid-template-columns: 1fr; */
+    grid-template-columns: var(--card-width);
+    gap: 3rem;
+  }
+
+  .hero {
+    padding: 3rem 0.75rem 3rem 0.75rem;
+  }
+
+  .reset-btn {
+    bottom: 1rem;
+    right: 1rem;
+    transform: translateX(0%);
+  }
+}
+
+@media (max-width: 540px) {
+  .controls {
+    /* width: 100%; */
+    grid-template-columns: 1fr;
   }
 
   .method-category {
-    min-width: 250px;
+    /* min-width: 250px; */
+    /* width: 100%; */
+    /* box-sizing: border-box; */
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 465px) {
+  h2 {
+    font-size: 3rem;
+  }
+
+  .method-category {
     padding: 1.25rem 1rem 2rem 1rem;
     gap: 1rem;
   }
@@ -393,22 +448,20 @@ span {
   }
 }
 
-@media (max-width: 1047px) {
-  #root {
-    margin: 0rem 0rem 0rem 0rem;
+/* Adjust rounded corners when radio items wrap on mobile */
+/* commented out bcs on mobile (pixel 3, iphone mini), there is no wrap, only in chrome devtools */
+/* don't delete the code completely though */
+/* @media (max-width: 387px) {
+  fieldset label:nth-of-type(2) {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
   }
 
-  main {
-    gap: 2rem;
+  fieldset label:nth-of-type(3) {
+    border-top: 1px solid var(--card-bg-color); 
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
   }
-
-  .controls {
-    gap: 2rem;
-  }
-
-  .reset-btn {
-    bottom: 1rem;
-    right: 1rem;
-    transform: translateX(0%);
-  }
-}
+} */
