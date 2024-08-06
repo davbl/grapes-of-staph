@@ -9,15 +9,15 @@
   --blackish-color: #615c66;
   --card-bg-color: white;
 
-  --radio-unselected: #f5f2f7;
-  --radio-selected: #e8e4ed;
-  --radio-hover: #efebf2; /* TODO */
+  --radio-unselected: #f4f0f7;
+  --radio-selected: #e6e1eb;
+  --radio-hover: #efebf2;
   /* --radio-active: #e2dce8;  not using anymore */
 
-  --btn-bg: #f2e5ff;
+  --btn-bg: #eddbff;
   --btn-text: #775499;
   --btn-hover: #9268bd;
-  --btn-active: #eddbff;
+  --btn-active: #e8d1ff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -353,8 +353,8 @@ span {
 
 /* Reset all radio selections */
 .reset-btn {
-  background-color: var(--btn-bg); /* TODO */
-  color: var(--btn-text); /* TODO */
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
   border: none;
   padding: 0.6rem 0.97rem 0.6rem 0.85rem;
   border-radius: 6px;
@@ -381,13 +381,13 @@ span {
 @media (hover: hover) {
   .reset-btn:hover {
     /* background-color: #f2f2f2; */
-    outline: 1.5px solid var(--btn-hover); /* TODO */
+    outline: 1.5px solid var(--btn-hover);
     outline-offset: -1.5px;
   }
 }
 
 .reset-btn:active {
-  background-color: var(--btn-active); /* TODO */
+  background-color: var(--btn-active);
   /* outline: 1.5px solid #9d70cc;
   outline-offset: -1.5px; */
 }
