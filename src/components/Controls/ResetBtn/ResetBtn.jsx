@@ -1,4 +1,5 @@
-import useStore from "../useStore";
+import "./resetBtn.css";
+import useStore from "../../../useStore";
 
 const ResetBtn = () => {
   //
@@ -18,7 +19,7 @@ const ResetBtn = () => {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="3"
+        strokeWidth="2.8"
         strokeLinecap="round"
         strokeLinejoin="round"
         className="lucide lucide-rotate-ccw">

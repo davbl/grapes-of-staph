@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import useStore from "../useStore";
+import useStore from "../../../useStore";
 
 const MolecularMethods = () => {
   //

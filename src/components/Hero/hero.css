@@ -1,0 +1,26 @@
+/* Hero text + Result */
+.hero {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.1rem; */
+  position: relative;
+  overflow-y: visible;
+  /* padding-top: 1rem; */
+}
+
+/* Hero text */
+h2 {
+  margin: 0;
+  /* padding-top: 0.75rem; */
+  padding-bottom: 0.2rem;
+  font-size: 4rem;
+  color: var(--blackish-color);
+  text-align: center;
+  line-height: 90%;
+}
+
+@media (max-width: 1079px) {
+  .hero {
+    padding: 3rem 0.75rem 3rem 0.75rem;
+  }
+}

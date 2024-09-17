@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import useStore from "../useStore";
+import "./result.css";
+import useStore from "../../../useStore";
 import { useEffect, useRef } from "react";
 
 const resultLookup = {
