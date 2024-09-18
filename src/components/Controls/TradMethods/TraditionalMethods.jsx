@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import useStore from "../../../useStore";
 import { Microscope } from "lucide-react";
 

@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import useStore from "../../../useStore";
 
 const MolecularMethods = () => {
@@ -23,7 +21,7 @@ const MolecularMethods = () => {
     <div className={`method-category ${gram ? "disabled" : ""}`}>
       {/* Header */}
       <div className="method-category-header">
-        {/* Not an imported lucide icon due to custom rotation */}
+        {/* svg - NOT an imported lucide icon due to custom rotation */}
         <svg
           width="24"
           height="24"
