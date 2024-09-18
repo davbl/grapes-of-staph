@@ -1,41 +1,58 @@
-/* Reset all radio selections */
+.reset-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-end;
+
+  p {
+    font-size: 0.9rem;
+    color: #817e8c;
+  }
+
+  kbd {
+    font-family: inherit;
+    color: inherit;
+    background-color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    /* x y blur spread color */
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+  }
+}
+
 .reset-btn {
-  --btn-bg: #eddbff;
-  --btn-text: #775499;
-  --btn-hover: #9268bd;
-  --btn-active: #e8d1ff;
+  --btn-text: #504680;
+  --btn-bg: #dfd9ff;
+  --btn-hover: #d9d1ff;
+  --btn-active: #d4ccff;
 
   background-color: var(--btn-bg);
   color: var(--btn-text);
   border: none;
-  padding: 8px 18px 8px 16px;
+  padding: 8px 16px 8px 14px;
   border-radius: 6px 6px 0px 0px;
   display: flex;
   width: fit-content;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   cursor: pointer;
-  font-weight: 400;
-  font-size: 1rem;
-  align-self: flex-end;
-  /* transition: all 0.05s ease-in-out;  the outline is weirdly animated, so off */
-  /* outline-offset: -1.5px; */
+  font-weight: 500;
+  font-size: 0.95rem;
+  /* align-self: flex-end; */
 }
 
 /* This is so that hover doesn't persist on mobile after tapping btn */
 @media (hover: hover) {
   .reset-btn:hover {
-    /* background-color: #f2f2f2; */
-    outline: 1.5px solid var(--btn-hover);
-    outline-offset: -1.5px;
+    background-color: var(--btn-hover);
+    /* outline: 1.5px solid var(--btn-hover);
+    outline-offset: -1.5px; */
   }
 }
 
 .reset-btn:active {
   background-color: var(--btn-active);
-  /* outline: 1.5px solid #9d70cc;
-  outline-offset: -1.5px; */
 }
 
 .reset-btn:focus-visible {
@@ -44,10 +61,17 @@
 }
 
 @media (max-width: 1079px) {
-  .reset-btn {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    transform: translateX(0%);
+  .reset-container {
+    .reset-btn {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      /* transform: translateX(0%); */
+      border-radius: 6px;
+    }
+
+    p {
+      display: none;
+    }
   }
 }
