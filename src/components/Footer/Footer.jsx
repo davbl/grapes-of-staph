@@ -7,14 +7,14 @@ const Footer = () => {
   return (
     <footer>
       <div className="block info">
-        <h4>Info</h4>
+        <h3>Info</h3>
         <p>
           Grapes of Staph is a demo app, not a full-featured diagnostic tool.
         </p>
       </div>
 
       <div className="block">
-        <h4>Feedback</h4>
+        <h3>Feedback</h3>
         <a href="https://forms.gle/XdAxz4bARDy2nqGy7" target="_blank">
           <p>Tell me what to improve</p>
           <SquareArrowOutUpRight
@@ -27,9 +27,9 @@ const Footer = () => {
 
       <div className="block copyright">
         <a href="https://www.dnarna.co" target="_blank">
-          <h4>
+          <h3>
             <span>DNARNA.co</span>
-          </h4>
+          </h3>
         </a>
         <p>© {currentYear}</p>
       </div>

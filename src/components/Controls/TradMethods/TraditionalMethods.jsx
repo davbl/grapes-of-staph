@@ -35,7 +35,7 @@ const TraditionalMethods = () => {
       }`}>
       {/* Header */}
       <div className="method-category-header">
-        <h3>Traditional Methods</h3>
+        <h2>Traditional Methods</h2>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"

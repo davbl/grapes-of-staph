@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="hero">
       {/* Hero text */}
-      <h2>Is it S. aureus?</h2>
+      <h1>Is it S. aureus?</h1>
       <Result />
     </section>
   );

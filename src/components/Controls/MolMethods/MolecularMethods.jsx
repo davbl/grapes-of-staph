@@ -24,7 +24,7 @@ const MolecularMethods = () => {
       {/* <div className="method-category"> */}
       {/* Header */}
       <div className="method-category-header">
-        <h3>Molecular Methods</h3>
+        <h2>Molecular Methods</h2>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"

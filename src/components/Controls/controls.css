@@ -57,7 +57,7 @@
 }
 
 /* Methods heading */
-h3 {
+h2 {
   margin: 0;
   color: var(--blackish-color);
   font-size: 1.5rem;
@@ -218,10 +218,6 @@ input {
 }
 
 @media (max-width: 465px) {
-  h2 {
-    font-size: 3rem;
-  }
-
   .method-category {
     padding: 1.25rem 1rem 2rem 1rem;
     gap: 1rem;

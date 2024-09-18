@@ -9,11 +9,11 @@
 }
 
 /* Hero text */
-h2 {
+h1 {
   margin: 0;
   /* padding-top: 0.75rem; */
   padding-bottom: 0.2rem;
-  font-size: 4rem;
+  font-size: 4.5rem;
   color: var(--blackish-color);
   text-align: center;
   line-height: 90%;
@@ -22,5 +22,11 @@ h2 {
 @media (max-width: 1079px) {
   .hero {
     padding: 3rem 0.75rem 3rem 0.75rem;
+  }
+}
+
+@media (max-width: 465px) {
+  h1 {
+    font-size: 3rem;
   }
 }
