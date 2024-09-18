@@ -1,6 +1,7 @@
 .controls {
   display: flex;
   flex-direction: column;
+  padding-top: 2.3rem;
 }
 
 .methods {
@@ -55,7 +56,7 @@
   flex-direction: column;
   gap: 0.25rem;
 
-  /* Methods heading */
+  /* Method heading */
   h2 {
     margin: 0;
     color: var(--blackish-color);
@@ -65,7 +66,7 @@
   }
 
   .separator {
-    border-bottom: 1px solid #f3f2f5;
+    border-bottom: 1px solid #f3f2f7;
     margin-left: -40px; /* Adjust this value to match the padding of the card */
     margin-right: -40px;
   }
@@ -126,10 +127,10 @@ label {
   padding: 0.5rem 1rem 0.5rem 0.85rem;
   /* accent-color: var(
     --blackish-color
-  ); this colors associated input */
+  ); this colors the associated input */
   display: flex;
   align-items: center;
-  /* transition: background-color 0.1s ease-in-out;  with this off, radio btns are more responsive */
+  /* transition: background-color 0.1s ease-in-out;  With this off, radio btns are more responsive */
   max-height: 1.5rem; /* ensure consistent height. there was an issue on mobile. (content is 24px = 1.5rem x 16) */
   max-width: fit-content;
   flex-shrink: 1;
