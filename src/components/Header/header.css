@@ -2,22 +2,5 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  /* margin-bottom: 1rem; */
-
-  /* svg {
-    padding-bottom: 0.5px;
-  } */
   margin: 2rem 0rem 0rem 0rem;
-}
-
-/* Logo */
-h1 {
-  font-size: 1rem;
-  font-weight: 550;
-  /* line-height: 1.1; */
-  /* margin: 1.25rem 0rem; */
-  text-align: center;
-  color: var(--accent-color);
-  /* text-transform: uppercase; */
 }
