@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import useStore from "../../../useStore";
+import { Microscope } from "lucide-react";
 
 const TraditionalMethods = () => {
   //
@@ -35,25 +36,9 @@ const TraditionalMethods = () => {
       }`}>
       {/* Header */}
       <div className="method-category-header">
+        <Microscope size={24} color="currentColor" strokeWidth={2} />
         <h2>Traditional Methods</h2>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#615c66"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="lucide lucide-microscope">
-          <path d="M6 18h8" />
-          <path d="M3 22h18" />
-          <path d="M14 22a7 7 0 1 0 0-14h-1" />
-          <path d="M9 14h2" />
-          <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" />
-          <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
-        </svg>
+        <div className="separator"></div>
       </div>
 
       <div className="radios-column">

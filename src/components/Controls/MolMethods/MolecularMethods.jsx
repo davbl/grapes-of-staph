@@ -21,36 +21,98 @@ const MolecularMethods = () => {
   return (
     // if gram, add class 'disabled'
     <div className={`method-category ${gram ? "disabled" : ""}`}>
-      {/* <div className="method-category"> */}
       {/* Header */}
       <div className="method-category-header">
-        <h2>Molecular Methods</h2>
+        {/* Not an imported lucide icon due to custom rotation */}
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
+          width="24"
+          height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#615c66"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="lucide lucide-dna">
-          <path d="m10 16 1.5 1.5" />
-          <path d="m14 8-1.5-1.5" />
-          <path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993" />
-          <path d="m16.5 10.5 1 1" />
-          <path d="m17 6-2.891-2.891" />
-          <path d="M2 15c6.667-6 13.333 0 20-6" />
-          <path d="m20 9 .891.891" />
-          <path d="M3.109 14.109 4 15" />
-          <path d="m6.5 12.5 1 1" />
-          <path d="m7 18 2.891 2.891" />
-          <path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993" />
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11.0684 16.4297H13.282"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M8.11695 7.57324H5.90332"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M4.42669 2.4092C4.57426 5.21025 5.51653 7.2151 6.77756 8.90267"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M11.8057 7.57324H13.2814"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M8.85527 3.88379L4.58887 3.88379"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M4.42726 21.5944C4.91942 12.2475 14.2654 11.756 14.7575 2.40912"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M13.2822 3.88379L14.5971 3.88379"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M4.58887 20.1182L5.90376 20.1182"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M5.90332 16.4297H7.37907"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M10.3301 20.1182L14.5965 20.1182"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M14.7571 21.5931C14.6095 18.7921 13.6672 16.7872 12.4062 15.0996"
+            stroke="#5D5C66"
+            strokeWidth="2.08705"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
+
+        <h2>Molecular Methods</h2>
+        <div className="separator"></div>
       </div>
 
-      {/* <div className={`radios-column ${gram ? "disabled" : ""}`}> */}
       <div className="radios-column">
         {/* PCR */}
         <fieldset className={pcr === "disabled" ? "disabled" : ""}>
