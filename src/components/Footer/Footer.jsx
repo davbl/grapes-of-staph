@@ -2,6 +2,7 @@ import "./footer.css";
 import { SquareArrowOutUpRight } from "lucide-react";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   // Render
   return (
     <footer>
@@ -30,8 +31,7 @@ const Footer = () => {
             <span>DNARNA.co</span>
           </h4>
         </a>
-        {/* TODO: script to get current year */}
-        <p>© 2024</p>
+        <p>© {currentYear}</p>
       </div>
     </footer>
   );

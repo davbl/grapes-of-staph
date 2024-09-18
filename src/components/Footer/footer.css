@@ -29,7 +29,7 @@ footer {
   }
 
   span {
-    font-size: 0.9rem;
+    font-size: 0.94rem;
   }
 
   p {
@@ -42,7 +42,7 @@ footer {
     text-decoration: none;
     cursor: pointer;
     display: flex;
-    flex-shrink: 1;
+    width: max-content; /* so that not the whole grid cell is a link, just the text */
     align-items: center;
     gap: 4px;
 
