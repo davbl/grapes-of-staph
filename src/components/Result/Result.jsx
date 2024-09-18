@@ -1,8 +1,5 @@
-/* eslint-disable react/prop-types */
-
 import "./result.css";
-import useStore from "../../../useStore";
-import { useEffect, useRef } from "react";
+import useStore from "../../useStore";
 
 const resultLookup = {
   "pcr:negative": "No",
@@ -22,32 +19,6 @@ const Result = () => {
   //
   // Destructure radio selections object from zustand store
   const { pcr, maldi, gram, mannitol, catalase } = useStore();
-
-  // Sticky Result when scrolling on mobile
-  const stickyRef = useRef(null);
-  const placeholderRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!stickyRef.current || !placeholderRef.current) return;
-
-      const stickyTop = placeholderRef.current.getBoundingClientRect().top;
-      if (stickyTop <= 0) {
-        stickyRef.current.style.position = "fixed";
-        stickyRef.current.style.top = "0";
-        stickyRef.current.style.left = "0";
-        stickyRef.current.style.right = "0";
-        stickyRef.current.style.zIndex = "1000";
-        placeholderRef.current.style.height = `${stickyRef.current.offsetHeight}px`;
-      } else {
-        stickyRef.current.style.position = "static";
-        placeholderRef.current.style.height = "0";
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Calculate result from radio selections
   const calculateResult = () => {
@@ -80,9 +51,7 @@ const Result = () => {
   // Render
   return (
     <>
-      {/* Sticky */}
-      <div ref={placeholderRef}></div>
-      <div ref={stickyRef} className="sticky-container">
+      <div className="sticky-container">
         <ol>
           {/* Add appropriate color-coding */}
           <li className={result === "No" ? "no" : ""}>No</li>
