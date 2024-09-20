@@ -29,7 +29,7 @@
   background-color: var(--card-bg-color);
   /* padding: 2.2rem 2.5rem 2.8rem 2.5rem; Moved padding to category-header and radios-column so that it doesn't apply to separator */
   border-radius: 8px;
-  max-height: min-content;
+  /* max-height: min-content; */
   /* x y blur spread color */
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
 
