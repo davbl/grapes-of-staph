@@ -10,18 +10,22 @@ footer {
   padding: 5.25rem 0 2.5rem 0;
   color: #817e8c;
 
-  .block {
+  .cell {
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
 
-  .info {
+  /* .info {
     grid-column: span 2;
+  } */
+
+  .grid-end {
+    justify-self: end;
   }
 
   .copyright {
-    justify-self: end;
+    width: 270.61px;
   }
 
   h3 {
@@ -65,11 +69,11 @@ footer {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
 
-    .info {
+    /* .info {
       grid-column: span 1;
-    }
+    } */
 
-    .copyright {
+    .grid-end {
       justify-self: start;
     }
   }
