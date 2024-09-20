@@ -95,9 +95,3 @@ main {
   width: 100%;
   /* padding: 0rem 4rem 0rem 4rem; */
 }
-
-/* Applies to all svg icons - in logo, and lucide icons */
-/* DONE: revisit this rule. - yes, keep the rule, Sep 18, 2024 */
-svg {
-  padding-bottom: 0.5px;
-}

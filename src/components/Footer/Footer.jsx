@@ -1,5 +1,5 @@
 import "./footer.css";
-import { SquareArrowOutUpRight } from "lucide-react";
+import { SquareArrowUpRight } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,10 +22,10 @@ const Footer = () => {
         <h3>Feedback</h3>
         <a href="https://forms.gle/XdAxz4bARDy2nqGy7" target="_blank">
           <p>Tell me what to improve</p>
-          <SquareArrowOutUpRight
-            size={12}
+          <SquareArrowUpRight
+            size={14}
             color="currentColor"
-            strokeWidth={2.25}
+            strokeWidth={1.5}
           />
         </a>
       </div>
