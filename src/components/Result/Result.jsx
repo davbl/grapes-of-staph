@@ -52,7 +52,7 @@ const Result = () => {
   return (
     <>
       <div className="sticky-container">
-        <ol>
+        <ol aria-live="polite">
           {/* Add appropriate color-coding */}
           <li className={result === "No" ? "no" : ""}>No</li>
           <li className={result === "Unlikely" ? "unlikely" : ""}>Unlikely</li>

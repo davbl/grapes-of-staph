@@ -35,7 +35,11 @@ const ResetBtn = () => {
       <p>
         Press <kbd>R</kbd>
       </p>
-      <button type="button" className="reset-btn" onClick={resetSelections}>
+      <button
+        type="button"
+        className="reset-btn"
+        onClick={resetSelections}
+        aria-label="Reset selections">
         <RotateCcw size={13} color="currentColor" strokeWidth={2.8} />
         Reset
       </button>
