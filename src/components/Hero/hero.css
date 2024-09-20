@@ -4,10 +4,14 @@ h1 {
   text-align: center;
   line-height: 90%;
   padding-bottom: 0.2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-@media (max-width: 465px) {
+@media (max-width: 381px) {
   h1 {
-    font-size: 3rem;
+    font-size: 4.25rem;
+    padding-bottom: 0.3rem;
+    /* line-height: 85%; */
   }
 }

@@ -106,10 +106,9 @@ const MolecularMethods = () => {
             strokeLinejoin="round"
           />
         </svg>
-
         <h2>Molecular Methods</h2>
-        <div className="separator"></div>
       </div>
+      <div className="separator"></div>
 
       <div className="radios-column">
         {/* PCR */}

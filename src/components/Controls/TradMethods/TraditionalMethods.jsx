@@ -36,8 +36,8 @@ const TraditionalMethods = () => {
       <div className="method-category-header">
         <Microscope size={24} color="currentColor" strokeWidth={2} />
         <h2>Traditional Methods</h2>
-        <div className="separator"></div>
       </div>
+      <div className="separator"></div>
 
       <div className="radios-column">
         {/* GRAM STAIN */}

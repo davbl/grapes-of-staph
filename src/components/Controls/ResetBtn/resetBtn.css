@@ -1,7 +1,7 @@
 .reset-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   align-self: flex-end;
 
   p {
@@ -29,13 +29,13 @@
   color: var(--btn-text);
   background-color: var(--btn-bg);
   border: none;
-  padding: 8px 16px 8px 14px;
+  padding: 8px 14px 8px 13px;
   border-radius: 6px 6px 0px 0px;
   display: flex;
   width: fit-content;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   cursor: pointer;
   font-weight: 500;
   font-size: 0.95rem;
@@ -46,8 +46,6 @@
 @media (hover: hover) {
   .reset-btn:hover {
     background-color: var(--btn-hover);
-    /* outline: 1.5px solid var(--btn-hover);
-    outline-offset: -1.5px; */
   }
 }
 
@@ -60,7 +58,7 @@
   outline-offset: -1.5px;
 }
 
-@media (max-width: 1079px) {
+@media (max-width: 918px) {
   .reset-container {
     .reset-btn {
       position: fixed;

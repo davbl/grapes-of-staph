@@ -24,15 +24,10 @@
 }
 
 .method-category {
-  /* flex: 1;
-  max-width: 364px; 
-  min-width: 364px;  */
-  /* width: 40%; */
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   background-color: var(--card-bg-color);
-  padding: 2.2rem 2.5rem 2.8rem 2.5rem;
+  /* padding: 2.2rem 2.5rem 2.8rem 2.5rem; Moved padding to category-header and radios-column so that it doesn't apply to separator */
   border-radius: 8px;
   max-height: min-content;
   /* x y blur spread color */
@@ -55,6 +50,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  padding: 2.2rem 2.5rem 0 2.5rem;
 
   /* Method heading */
   h2 {
@@ -62,14 +58,16 @@
     color: var(--blackish-color);
     font-size: 1.5rem;
     font-weight: 650;
-    padding-bottom: 1.5rem;
+    /* padding-bottom: 1.5rem; */
   }
+}
 
-  .separator {
-    border-bottom: 1px solid #f3f2f7;
-    margin-left: -40px; /* Adjust this value to match the padding of the card */
-    margin-right: -40px;
-  }
+.separator {
+  height: 1px;
+  background-color: #f3f2f7;
+  /* border-bottom: 1px solid #f3f2f7; */
+  width: 100%;
+  margin: 1.8rem 0 2.15rem 0;
 }
 
 .radios-column {
@@ -77,6 +75,7 @@
   flex-direction: column;
   gap: 2rem;
   max-height: min-content;
+  padding: 0 2.5rem 2.8rem 2.5rem;
 }
 
 /* Radio group */
@@ -195,35 +194,58 @@ input {
   pointer-events: none;
 }
 
-@media (max-width: 1079px) {
+@media (max-width: 918px) {
+  .controls {
+    padding-top: 4rem;
+  }
+
   .methods {
     /* grid-template-columns: 1fr; */
     grid-template-columns: var(--card-width);
     gap: 3rem;
   }
+
+  .method-category {
+    &:first-of-type {
+      border-radius: 8px;
+    }
+
+    &:nth-of-type(2) {
+      border-radius: 8px;
+    }
+  }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 482px) {
+  .controls {
+    padding-top: 3.25rem;
+  }
+
   .methods {
-    /* width: 100%; */
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .method-category {
-    /* min-width: 250px; */
-    /* width: 100%; */
-    /* box-sizing: border-box; */
-    border-radius: 0;
-  }
-}
+    &:first-of-type {
+      border-radius: 0;
+    }
 
-@media (max-width: 465px) {
-  .method-category {
-    padding: 1.25rem 1rem 2rem 1rem;
-    gap: 1rem;
+    &:nth-of-type(2) {
+      border-radius: 0;
+    }
+  }
+
+  .method-category-header {
+    padding: 1.5rem 1rem 0 1rem;
+  }
+
+  .separator {
+    margin: 1.1rem 0 1.5rem 0;
   }
 
   .radios-column {
+    padding: 0 1rem 2rem 1rem;
     gap: 1.5rem;
   }
 }

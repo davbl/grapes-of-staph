@@ -36,7 +36,7 @@ const ResetBtn = () => {
         Press <kbd>R</kbd>
       </p>
       <button type="button" className="reset-btn" onClick={resetSelections}>
-        <RotateCcw size={14} color="currentColor" strokeWidth={2.8} />
+        <RotateCcw size={13} color="currentColor" strokeWidth={2.8} />
         Reset
       </button>
     </div>

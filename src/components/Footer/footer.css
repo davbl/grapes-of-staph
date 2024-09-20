@@ -1,4 +1,5 @@
 footer {
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -6,7 +7,7 @@ footer {
   width: 100%;
   margin: 0 auto;
   row-gap: 1.5rem;
-  padding: 4.5rem 0 3rem 0;
+  padding: 5.25rem 0 2.5rem 0;
   color: #817e8c;
 
   .block {
@@ -55,5 +56,28 @@ footer {
       color: var(--accent-color);
       /* transition: all 0.1s ease-in-out; */
     }
+  }
+}
+
+@media (max-width: 918px) {
+  footer {
+    max-width: 434px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    .info {
+      grid-column: span 1;
+    }
+
+    .copyright {
+      justify-self: start;
+    }
+  }
+}
+
+@media (max-width: 482px) {
+  footer {
+    margin: 0;
+    padding: 5.25rem 1rem 2.5rem 1rem;
   }
 }
