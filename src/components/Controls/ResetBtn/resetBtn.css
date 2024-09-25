@@ -65,6 +65,10 @@
       bottom: 1rem;
       right: 1rem;
       border-radius: 6px;
+
+      svg {
+        padding-bottom: 1px;
+      }
     }
 
     p {
